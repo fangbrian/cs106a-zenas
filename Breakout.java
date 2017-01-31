@@ -16,6 +16,8 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Breakout extends GraphicsProgram {
+    
+    //STUPID CHANGE
 
 /** Width and height of application window in pixels */
 	public static final int APPLICATION_WIDTH = 400;
