@@ -23,7 +23,10 @@ public class NameSurferEntry implements NameSurferConstants {
  * decade.
  */
 	public NameSurferEntry(String line) {
+		// Splits line read from text file by spaces
 		stringParts = line.split(" ");
+		// Takes String parts in stringParts array and translates those parts
+		// into Integer parts in the corresponding indexes of the intParts array.
 		for(int i = 1; i < NDECADES + 1; i++) {
 			intParts[i] = Integer.parseInt(stringParts[i]);
 		}

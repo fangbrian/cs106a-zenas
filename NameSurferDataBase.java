@@ -31,11 +31,14 @@ public class NameSurferDataBase implements NameSurferConstants {
  */
 	public NameSurferDataBase(String filename) {
 		try {
+			// Read in file, line by line
 			BufferedReader rd = new BufferedReader(new FileReader(filename));
 			while(true) {
 				String line = rd.readLine();
 				if(line == null) break;
+				// Create new instance of NameSurferEntry based on line read
 				entry = new NameSurferEntry(line);
+				// Enter entry into database via Hashmap, with name being the key and list of ranks being the value
 				directory.put(entry.getName(), entry.getAllRanks());
 			}
 			rd.close();

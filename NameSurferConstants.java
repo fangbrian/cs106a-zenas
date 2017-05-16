@@ -32,6 +32,6 @@ public interface NameSurferConstants {
 /** Max limit of characters in the text field */
 	public static final int TEXT_FIELD_SIZE = 15;
 	
-/** The number of pixels to reserve between the decade label and adjacent grid lines */
-	public static final int DECADE_LABEL_MARGIN = 3;
+/** The number of pixels to reserve between labels and adjacent grid lines */
+	public static final int LABEL_MARGIN = 5;
 }
