@@ -12,8 +12,9 @@ import java.util.*;
 public class NameSurferEntry implements NameSurferConstants {
 
 /* Instance Variables */
-	private String[] stringParts = new String[NDECADES + 1];
-	private Integer[] intParts = new Integer[NDECADES + 1];
+private String name;
+private String data;
+private ArrayList<String> dataSeparatedByDecade = new ArrayList<String>();
 
 /* Constructor: NameSurferEntry(line) */
 /**
@@ -22,23 +23,28 @@ public class NameSurferEntry implements NameSurferConstants {
  * followed by integers giving the rank of that name for each
  * decade.
  */
-	public NameSurferEntry(String line) {
-		// Splits line read from text file by spaces
-		stringParts = line.split(" ");
-		// Takes String parts in stringParts array and translates those parts
-		// into Integer parts in the corresponding indexes of the intParts array.
-		for(int i = 1; i < NDECADES + 1; i++) {
-			intParts[i] = Integer.parseInt(stringParts[i]);
-		}
+public NameSurferEntry(String line) {
+	// Splits read line into 2 parts, name and data.
+	// Puts name found into name variable and puts the String 
+	// data into data variable.
+	int firstSpace = line.indexOf(" ");
+	name = line.substring(0, firstSpace);
+	data = line.substring(firstSpace);
+	// Splits data from String data and puts each piece into
+	// different index of arraylist dataSeparatedByDecade
+	for(int i = 0; i < NDECADES; i++) {
+		String[] data2 = data.split(" ");
+		dataSeparatedByDecade.add(data2[i]);
 	}
+}
 
 /* Method: getName() */
 /**
  * Returns the name associated with this entry.
  */
-	public String getName() {
-		return stringParts[0];
-	}
+public String getName() {
+	return name;
+}
 
 /* Method: getRank(decade) */
 /**
@@ -48,39 +54,25 @@ public class NameSurferEntry implements NameSurferConstants {
  * which is given by the constant START_DECADE.  If a name does
  * not appear in a decade, the rank value is 0.
  */
-	public int getRank(int decade) {
-		return intParts[decade + 1];
-	}
+public int getRank(int decade) {
+	return Integer.parseInt(dataSeparatedByDecade.get(decade));
+}
 	
 /* Method: getAllRanks() */
 /**
  * Returns all of the ranks associated with a name, in chronological order.
  */
-	public String getAllRanks() {
-		String allRanks = new String();
-		for(int i = 1; i < 12; i++) {
-			if(i == 11)
-				allRanks += Integer.toString(intParts[i]);
-			else 
-				allRanks += Integer.toString(intParts[i]) + " ";
-		}
-		return allRanks;
-	}
+public String getAllRanks() {
+	return data;
+}
 
 /* Method: toString() */
 /**
  * Returns a string that makes it easy to see the value of a
  * NameSurferEntry.
  */
-	public String toString() {
-		String nameAndRanks = stringParts[0] + " [";
-		for(int i = 1; i < NDECADES + 1; i++){
-			if(i == NDECADES)
-				nameAndRanks += stringParts[i] + "]";
-			else
-				nameAndRanks += stringParts[i] + " ";
-		}
-		return nameAndRanks;
-	}
+public String toString() {
+	return (name + " " + data);
+}
 }
 

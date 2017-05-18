@@ -9,29 +9,29 @@
 public interface NameSurferConstants {
 
 /** The width of the application window */
-	public static final int APPLICATION_WIDTH = 800;
+public static final int APPLICATION_WIDTH = 800;
 
 /** The height of the application window */
-	public static final int APPLICATION_HEIGHT = 600;
+public static final int APPLICATION_HEIGHT = 600;
 
 /** The name of the file containing the data */
-	public static final String NAMES_DATA_FILE = "names-data.txt";
+public static final String NAMES_DATA_FILE = "names-data.txt";
 
 /** The first decade in the database */
-	public static final int START_DECADE = 1900;
+public static final int START_DECADE = 1900;
 
 /** The number of decades */
-	public static final int NDECADES = 11;
+public static final int NDECADES = 11;
 
 /** The maximum rank in the database */
-	public static final int MAX_RANK = 1000;
+public static final int MAX_RANK = 1000;
 
 /** The number of pixels to reserve at the top and bottom */
-	public static final int GRAPH_MARGIN_SIZE = 20;
+public static final int GRAPH_MARGIN_SIZE = 20;
 
 /** Max limit of characters in the text field */
-	public static final int TEXT_FIELD_SIZE = 15;
-	
+public static final int TEXT_FIELD_SIZE = 15;
+
 /** The number of pixels to reserve between labels and adjacent grid lines */
-	public static final int LABEL_MARGIN = 5;
+public static final int LABEL_MARGIN = 5;
 }

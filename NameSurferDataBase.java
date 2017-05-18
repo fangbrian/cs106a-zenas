@@ -19,8 +19,7 @@ import java.io.*;
 public class NameSurferDataBase implements NameSurferConstants {
 
 /* Instance Variables */
-	private Map<String,String> directory = new HashMap<String,String>();
-	private NameSurferEntry entry;
+private Map<String,String> directory = new HashMap<String,String>();
 	
 /* Constructor: NameSurferDataBase(filename) */
 /**
@@ -29,24 +28,24 @@ public class NameSurferDataBase implements NameSurferConstants {
  * exception if the requested file does not exist or if an error
  * occurs as the file is being read.
  */
-	public NameSurferDataBase(String filename) {
-		try {
-			// Read in file, line by line
-			BufferedReader rd = new BufferedReader(new FileReader(filename));
-			while(true) {
-				String line = rd.readLine();
-				if(line == null) break;
-				// Create new instance of NameSurferEntry based on line read
-				entry = new NameSurferEntry(line);
-				// Enter entry into database via Hashmap, with name being the key and list of ranks being the value
-				directory.put(entry.getName(), entry.getAllRanks());
-			}
-			rd.close();
+public NameSurferDataBase(String filename) {
+	try {
+		// Read in file, line by line
+		BufferedReader rd = new BufferedReader(new FileReader(filename));
+		while(true) {
+			String line = rd.readLine();
+			if(line == null) break;
+			// Create new instance of NameSurferEntry based on line read
+			NameSurferEntry entry = new NameSurferEntry(line);
+			// Enter entry into database via Hashmap, with name being the key and list of ranks being the value
+			directory.put(entry.getName(), entry.getAllRanks());
 		}
-		catch(IOException ex) {
-			throw new ErrorException(ex);
-		}
+		rd.close();
 	}
+	catch(IOException ex) {
+		throw new ErrorException(ex);
+	}
+}
 	
 /* Method: findEntry(name) */
 /**
@@ -54,13 +53,13 @@ public class NameSurferDataBase implements NameSurferConstants {
  * exists.  If the name does not appear in the database, this
  * method returns null.
  */
-	public NameSurferEntry findEntry(String name) {
-		if(directory.containsKey(name)) {
-			entry = new NameSurferEntry(name + " " + directory.get(name));
-			return entry;
-		}
-		else
-			return null;
+public NameSurferEntry findEntry(String name) {
+	if(directory.containsKey(name)) {
+		NameSurferEntry entry = new NameSurferEntry(name + " " + directory.get(name));
+		return entry;
 	}
+	else
+		return null;
+}
 }
 
