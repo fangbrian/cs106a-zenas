@@ -64,10 +64,10 @@ public void actionPerformed(ActionEvent e) {
  * Then draws graph of name entered into textfield.
  */
 private void drawGraph() {
+	//guiGraph.addEntry(nameSurferDataBase.findEntry(textField.getText()));
 	String a = textField.getText();
 	NameSurferEntry b = nameSurferDataBase.findEntry(a);
 	guiGraph.addEntry(b);
-	//guiGraph.addEntry(nameSurferDataBase.findEntry(textField.getText()));
 	guiGraph.update();
 }
 }

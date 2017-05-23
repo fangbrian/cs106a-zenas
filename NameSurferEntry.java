@@ -29,7 +29,7 @@ public NameSurferEntry(String line) {
 	// data into data variable.
 	int firstSpace = line.indexOf(" ");
 	name = line.substring(0, firstSpace);
-	data = line.substring(firstSpace);
+	data = line.substring(firstSpace + 1);
 	// Splits data from String data and puts each piece into
 	// different index of arraylist dataSeparatedByDecade
 	for(int i = 0; i < NDECADES; i++) {
@@ -55,7 +55,11 @@ public String getName() {
  * not appear in a decade, the rank value is 0.
  */
 public int getRank(int decade) {
-	return Integer.parseInt(dataSeparatedByDecade.get(decade));
+	String rank = dataSeparatedByDecade.get(decade);
+	if(rank != null)
+		return Integer.parseInt(rank);
+	else
+		return 0;
 }
 	
 /* Method: getAllRanks() */

@@ -66,7 +66,7 @@ public void update() {
  * Draws graph lines based on rankings of names
  */
 private void drawGraphLines(NameSurferEntry entry, int entryNumber) {
-	for(int i = 0; i < NDECADES + 1; i++) {
+	for(int i = 0; i < NDECADES - 1; i++) {
         int ranking1 = entry.getRank(i);
         int ranking2 = entry.getRank(i + 1);
         double x1 = i * (getWidth() / NDECADES);
